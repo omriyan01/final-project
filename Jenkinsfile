@@ -29,7 +29,7 @@ pipeline {
                         echo 'Starting Docker build...'
                         
                         // Clone the Git repository into the workspace
-                        git branch: 'feature', credentialsId: 'gitlab-cred', url: 'https://gitlab.com/sela-tracks/1095/students/omriy/application/omri-app/app-backend.git'
+                        git branch: 'feature', credentialsId: 'omri-gitlab-cred', url: 'https://gitlab.com/sela-tracks/1095/students/omriy/application/omri-app/app-backend.git'
                         
                         // Build the Docker image from the current directory
                         def dockerImage = docker.build('omriyan01/flask-app:latest', '.')
