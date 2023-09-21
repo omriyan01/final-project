@@ -23,8 +23,12 @@ pipeline {
                         echo 'Starting Docker build...'
                         
                         // Clone the Git repository into the workspace
-                        git branch: 'feature', url: 'https://github.com/omriyan01/final-project.git'
-                        
+                        //git branch: 'feature', url: 'https://github.com/omriyan01/final-project.git'
+                        checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: 'feature']],
+                        userRemoteConfigs: [[url: 'https://github.com/omriyan01/final-project.git']]
+                    ])
                         // Build the Docker image from the current directory
                         def dockerImage = docker.build('omriyan01/flask-app:latest', '.')
                         echo 'Docker build completed.'
