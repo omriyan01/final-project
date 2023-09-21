@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             label 'flask-app'
-            yamlFile 'create-pod.yaml'
+            yamlFile 'omri-create-pod.yaml'
             defaultContainer 'omri-flask-app'
         }
     }
