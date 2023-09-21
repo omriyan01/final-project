@@ -3,7 +3,7 @@ pipeline {
         kubernetes {
             label 'flask-app'
             yamlFile 'omri-create-pod.yaml'
-            defaultContainer 'omri-flask-app'
+            defaultContainer 'ez-docker-helm-build'
         }
     }
 
