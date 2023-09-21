@@ -77,8 +77,9 @@ pipeline {
         }
     }
 
-    post {
+      post {
         success {
             echo 'Docker image and Helm chart pushed successfully.'
         }
     }
+}
