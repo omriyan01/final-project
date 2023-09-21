@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            label 'flask-app'
+            label 'slave-agent'
             yamlFile 'omri-create-pod.yaml'
             defaultContainer 'ez-docker-helm-build'
         }
