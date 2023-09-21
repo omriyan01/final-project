@@ -7,12 +7,6 @@ pipeline {
         }
     }
 
-    environment {
-        DOCKER_REGISTRY = 'https://registry.hub.docker.com' // Docker Hub URL
-        DOCKER_HUB_CREDENTIALS = credentials('omri-dockerhub-cred') 
-        GITLAB_TOKEN = credentials('omri-gitlab-cred')
-    }
-
     stages {
         stage('Test Docker') {
             steps {
