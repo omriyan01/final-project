@@ -82,4 +82,3 @@ pipeline {
             echo 'Docker image and Helm chart pushed successfully.'
         }
     }
-}
