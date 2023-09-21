@@ -60,14 +60,10 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'omri-dockerhub-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                         echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
+                        helm package omri-flask-app
+                        helm push omri-flask-app-0.1.0.tgz oci://registry-1.docker.io/omriyan01
                         '''
                     }
-
-                    echo 'Building and pushing Helm chart...'
-                    sh '''
-                    helm package omri-flask-app
-                    helm push omri-flask-app-0.1.0.tgz oci://registry-1.docker.io/omriyan01
-                    '''
                     echo 'Helm chart build and push completed.'
                 }
             }
