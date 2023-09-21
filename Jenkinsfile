@@ -1,4 +1,4 @@
-
+pipeline {
     agent {
         kubernetes {
             label 'flask-app'
@@ -83,4 +83,3 @@
         }
     }
 }
-
