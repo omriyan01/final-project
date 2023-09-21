@@ -19,20 +19,18 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    
-                        echo 'Starting Docker build...'
-                        
-                        // Clone the Git repository into the workspace
-                        //git branch: 'feature', url: 'https://github.com/omriyan01/final-project.git'
-                        checkout([
+                    echo 'Starting Docker build...'
+
+                    // Clone the Git repository into the workspace
+                    checkout([
                         $class: 'GitSCM',
                         branches: [[name: 'feature']],
                         userRemoteConfigs: [[url: 'https://github.com/omriyan01/final-project.git']]
                     ])
-                        // Build the Docker image from the current directory
-                        def dockerImage = docker.build('omriyan01/flask-app:latest', '.')
-                        echo 'Docker build completed.'
-                    }
+
+                    // Build the Docker image from the current directory
+                    def dockerImage = docker.build('omriyan01/flask-app:latest', '.')
+                    echo 'Docker build completed.'
                 }
             }
         }
