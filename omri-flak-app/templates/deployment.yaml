@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app-deployment
+  name: omri-flask-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-app
+      app: omri-flask-app
   template:
     metadata:
       labels:
-        app: flask-app
+        app: omri-flask-app
     spec:
       containers:
-        - name: flask-app
+        - name: omri-flask-app
           image: omriyan01/flask-app:latest
           ports:
             - containerPort: 5441  #
