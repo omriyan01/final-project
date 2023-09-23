@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-flask-app-service
+  name: omri-flask-app-service
 spec:
   selector:
       app: flask-app
   type: LoadBalancer
   ports:
-    - name: flask-app
+    - name: omri-flask-app
       port: 5441 # Port exposed by your Flask application
       targetPort: 5441 # Port your Flask application is listening on
 
