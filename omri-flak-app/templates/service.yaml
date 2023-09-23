@@ -9,5 +9,5 @@ service:
     type: LoadBalancer
     ports:
       - name: flask-app
-        port: 5455 # Port exposed by your Flask application
-        targetPort: 5455 # Port your Flask application is listening on
+        port: 5455
+        targetPort: 5455
