@@ -8,6 +8,6 @@ spec:
   type: LoadBalancer
   ports:
     - name: omri-flask-app
-      port: 5455 # Port exposed by your Flask application
-      targetPort: 5455 # Port your Flask application is listening on
+      port: 6055 # Port exposed by your Flask application
+      targetPort: 6055 # Port your Flask application is listening on
 
