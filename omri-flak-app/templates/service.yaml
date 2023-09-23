@@ -4,10 +4,11 @@ metadata:
   name: omri-flask-app-service
 spec:
   selector:
-      app: flask-app
+      app: omri-flask-app # Match the label used in Deployment
   type: LoadBalancer
   ports:
     - name: omri-flask-app
       port: 9001 # Port exposed by your Flask application
-      targetPort: 9001 # Port your Flask application is listening on
+      targetPort: 9001
+
 
