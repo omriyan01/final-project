@@ -16,4 +16,4 @@ spec:
         - name: omri-flask-app
           image: omriyan01/flask-app:latest
           ports:
-            - containerPort: 5441  #
+            - containerPort: 5455  #
