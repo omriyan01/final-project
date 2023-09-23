@@ -9,5 +9,5 @@ spec:
   ports:
     - name: omri-flask-app
       port: 5441 # Port exposed by your Flask application
-      targetPort: 5441 # Port your Flask application is listening on
+      targetPort: 5455 # Port your Flask application is listening on
 
