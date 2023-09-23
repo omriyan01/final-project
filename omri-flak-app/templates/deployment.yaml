@@ -16,4 +16,4 @@ spec:
         - name: flask-app
           image: omriyan01/flask-app:latest
           ports:
-            - containerPort: 5455  #
+            - containerPort: 5441  #
