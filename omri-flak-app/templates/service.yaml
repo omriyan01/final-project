@@ -1,12 +1,13 @@
-service: apiVersion: v1
-kind: Service
-metadata:
-  name: my-flask-app-service
-spec:
-  selector:
+service:
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: my-flask-app-service
+  spec:
+    selector:
       app: flask-app
-  type: LoadBalancer
-  ports:
-    - name: flask-app
-      port: 5455 # Port exposed by your Flask application
-      targetPort: 5455 # Port your Flask application is listening on
+    type: LoadBalancer
+    ports:
+      - name: flask-app
+        port: 5455 # Port exposed by your Flask application
+        targetPort: 5455 # Port your Flask application is listening on
