@@ -158,8 +158,9 @@
       <form>
 <h2>My Favorite Links:</h2>
         <ul>
-            <li><a href="{{ pair.url }}">{{ pair.text }}</a></li>
-            <!-- Add more favorite links here -->
+            {% for link in links %}
+                <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+            {% endfor %}
         </ul>
         <h2>Add New Link:</h2>
         <form method="POST">
