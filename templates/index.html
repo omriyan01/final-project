@@ -156,17 +156,21 @@
         <tr>
       </table>
       <form>
+<h2>My Favorite Links:</h2>
+        <ul>
+            <li><a href="{{ pair.url }}">{{ pair.text }}</a></li>
+            <!-- Add more favorite links here -->
+        </ul>
         <h2>Add New Link:</h2>
-    <form method="POST" action="/add_link">
-        <label for="text">Text:</label>
-        <input type="text" name="text" required>
-        <br>
-        <label for="url">URL:</label>
-        <input type="text" name="url" required>
-        <br>
-        <input type="submit" value="Add">
-    </form>
-
+        <form method="POST">
+            <label for="text">Text:</label>
+            <input type="text" name="text" required>
+            <br>
+            <label for="url">URL:</label>
+            <input type="text" name="url" required>
+            <br>
+            <input type="submit" value="Add">
+        </form>
     <h2>Contact Me:</h2>
     <form method="POST" action="/contact">
         <label for="email">Email:</label>
@@ -180,13 +184,6 @@
         <br>
         <input type="submit" value="Submit">
     </form>
-
-    <!-- Display your links here -->
-    <ul>
-        {% for link in links %}
-            <li><a href="{{ link.url }}">{{ link.text }}</a></li>
-        {% endfor %}
-    </ul>
     </main>
     <footer class="footer">© Copyright Mr. Yankelevits</footer>
   </div>
