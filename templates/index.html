@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mr. Camel</title>
+  <title>Mr. Yankelevits</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
@@ -156,11 +156,14 @@
         <tr>
       </table>
       <form>
-<h2>My Favorite Links:</h2>
+<body>
+    <div class="container">
+        <h2>My Favorite Links:</h2>
         <ul>
             {% for link in links %}
                 <li><a href="{{ link.url }}">{{ link.text }}</a></li>
             {% endfor %}
+            <!-- Add more favorite links here -->
         </ul>
         <h2>Add New Link:</h2>
         <form method="POST">
@@ -172,22 +175,5 @@
             <br>
             <input type="submit" value="Add">
         </form>
-    <h2>Contact Me:</h2>
-    <form method="POST" action="/contact">
-        <label for="email">Email:</label>
-        <input type="text" name="email" required>
-        <br>
-        <label for="mobile">Mobile:</label>
-        <input type="text" name="mobile" required>
-        <br>
-        <label for="message">Message:</label>
-        <textarea name="message" rows="5" cols="30" required></textarea>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    </main>
-    <footer class="footer">© Copyright Mr. Yankelevits</footer>
-  </div>
-</body>
-
+    </div>
 </html>
