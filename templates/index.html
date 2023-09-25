@@ -12,16 +12,24 @@
             text-align: center;
         }
 
+        header {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 0;
+        }
+
         h1 {
-            color: #333;
+            color: #fff;
             font-family: 'Helvetica', sans-serif;
             font-size: 36px;
+            margin-bottom: 20px;
         }
 
         h2 {
             color: #555;
             font-family: 'Helvetica', sans-serif;
             font-size: 24px;
+            margin-top: 20px;
         }
 
         ul {
@@ -46,42 +54,90 @@
             height: auto;
         }
 
-        /* Social media links */
-        .social {
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #0078d4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        form {
             margin-top: 20px;
         }
 
-        .social a {
-            color: #333;
-            text-decoration: none;
-            font-size: 24px;
-            margin: 10px;
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Welcome to Omri's Profile</h1>
-        <img src="your-profile-image.jpg" alt="Omri's Profile Image" width="200">
+    </header>
+    <div class="container">
+        <img src="https://www.football.org.il/ImageServer/GetImage.ashx?type=2&id=276054&width=240&height=305" width="200" alt="Image Description">
         <p>Hi, my name is Omri Yankelevits!</p>
-        <h2>My Favorite Links:</h2>
-        <ul>
-            {% for link in links %}
-                <li><a href="{{ link.url }}">{{ link.text }}</a></li>
-            {% endfor %}
-            <!-- Add more favorite links here -->
-        </ul>
+        <section>
+            <h2>My Favorite Links:</h2>
+            <ul>
+                {% for link in links %}
+                    <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+                {% endfor %}
+                <!-- Add more favorite links here -->
+            </ul>
+        </section>
 
-        <h2>Add New Link:</h2>
-        <form method="POST">
-            <label for="text">Text:</label>
-            <input type="text" name="text" required>
-            <br>
-            <label for="url">URL:</label>
-            <input type="text" name="url" required>
-            <br>
-            <input type="submit" value="Add">
-        </form>
+        <section>
+            <h2>Add New Link:</h2>
+            <form method="POST">
+                <label for="text">Text:</label>
+                <input type="text" name="text" required>
+                <br>
+                <label for="url">URL:</label>
+                <input type="text" name="url" required>
+                <br>
+                <input type="submit" value="Add">
+            </form>
+        </section>
 
         <!-- Social media links -->
         <div class="social">
@@ -91,5 +147,35 @@
             <a href="https://www.linkedin.com/feed/?trk=homepage-basic_sign-in-submit"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2023 Omri Yankelevits
+    </footer>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const linkForm = document.getElementById('link-form');
+            const newLinksDiv = document.getElementById('new-links');
+
+            linkForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get the text and URL input values
+                const textInput = document.getElementById('text');
+                const urlInput = document.getElementById('url');
+                const text = textInput.value;
+                const url = urlInput.value;
+
+                // Create a new link element and append it to the new-links div
+                const newLink = document.createElement('div');
+                newLink.className = 'new-link';
+                newLink.innerHTML = `<a href="${url}" target="_blank">${text}</a>`;
+                newLinksDiv.appendChild(newLink);
+
+                // Clear the input fields
+                textInput.value = '';
+                urlInput.value = '';
+            });
+        });
+    </script>
 </body>
 </html>
