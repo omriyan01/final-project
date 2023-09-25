@@ -155,25 +155,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             const linkForm = document.getElementById('link-form');
             const newLinksDiv = document.getElementById('new-links');
-
+    
             linkForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-
+    
                 // Get the text and URL input values
                 const textInput = document.getElementById('text');
                 const urlInput = document.getElementById('url');
                 const text = textInput.value;
                 const url = urlInput.value;
-
-                // Create a new link element and append it to the new-links div
-                const newLink = document.createElement('div');
-                newLink.className = 'new-link';
-                newLink.innerHTML = `<a href="${url}" target="_blank">${text}</a>`;
-                newLinksDiv.appendChild(newLink);
-
-                // Clear the input fields
-                textInput.value = '';
-                urlInput.value = '';
+    
+                if (text.trim() !== '' && url.trim() !== '') {
+                    // Create a new link element and append it to the new-links div
+                    const newLink = document.createElement('div');
+                    newLink.className = 'new-link';
+                    newLink.innerHTML = `<a href="${url}" target="_blank">${text}</a>`;
+                    newLinksDiv.appendChild(newLink);
+    
+                    // Clear the input fields
+                    textInput.value = '';
+                    urlInput.value = '';
+                }
             });
         });
     </script>
