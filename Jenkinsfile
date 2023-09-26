@@ -41,7 +41,7 @@ pipeline {
                 script {
                     // Run pytest in a Docker container
                     docker.image('omriyan01/flask-app:latest').inside {
-                        sh 'pytest'
+                        sh 'pytest test.py'
                     }
                 }
             }
