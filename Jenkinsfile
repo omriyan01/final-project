@@ -35,6 +35,18 @@ pipeline {
             }
         }
 
+        // Add the pytest stage here
+        stage('Run Pytest') {
+            steps {
+                script {
+                    // Run pytest in a Docker container
+                    docker.image('omriyan01/flask-app:latest').inside {
+                        sh 'pytest'
+                    }
+                }
+            }
+        }
+
         stage('Push Docker Image') {
             steps {
                 script {
