@@ -1,19 +1,15 @@
-# TODO: separate this code into front-end and back-end.
-# TODO:create pytest for this code(maybe something that checks the values of the requests
-# TODO: crate 2 dockerfiles(one for each file) with requirements.txt and try is as a pod
-
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
-# Connect to your MongoDB instance 
+# Connect to your MongoDB instance
 username="root"
 password="3yGWpZ7jeS"
 client = MongoClient(f'mongodb://{username}:{password}@34.78.116.136:27017/')
 db = client['omri_pro']
 collection = db['omri_url']
-#backend - connection to db 
+#backend - connection to db
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
